@@ -70,13 +70,12 @@ def search_password():
             # Reading from json
             data = json.load(data_file)
             info = data[website]
-            print(info)
             username = info["email"]
             password = info["password"]
             pyperclip.copy(password)
             messagebox.showinfo(title=website, message=f"Email: {username}\n Password: {password}")
     except KeyError and FileNotFoundError:
-        messagebox.showinfo(title=f"Not found", message=f"No details found for {website}")
+        messagebox.showinfo(title=f"Error", message=f"No details found for {website}")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
